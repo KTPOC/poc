@@ -8,7 +8,7 @@ variable "location" {
 variable "resource_group_name" {
   description = "Resource Group name"
   type        = string
-  default     = "rg-monitoring-demo"
+  default     = "rg-ai-foundry-demo"
 }
 
 variable "storage_account_name" {
