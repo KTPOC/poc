@@ -11,8 +11,3 @@ variable "resource_group_name" {
   default     = "rg-monitoring-demo"
 }
 
-variable "appinsights_name" {
-  description = "Application Insights name"
-  type        = string
-  default     = "appi-demo"
-}
