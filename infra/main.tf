@@ -65,9 +65,11 @@ resource "azurerm_cognitive_deployment" "gpt4" {
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
-    format  = "OpenAI"
-    name    = "text-curie-001"
-    version = "1"
+ model {
+  format  = "OpenAI"
+  name    = var.openai_model_name
+  version = var.openai_model_version
+}
 
   }
 
