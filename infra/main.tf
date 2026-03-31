@@ -64,13 +64,11 @@ resource "azurerm_cognitive_deployment" "gpt4" {
   name                 = "gpt-4o-mini"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
-  model {
+
  model {
   format  = "OpenAI"
   name    = var.openai_model_name
 }
-
-  }
 
   scale {
     type = "Standard"
