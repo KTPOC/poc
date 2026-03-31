@@ -61,13 +61,13 @@ resource "azurerm_cognitive_account" "openai" {
 # Model Deployment
 # ---------------------------
 resource "azurerm_cognitive_deployment" "gpt4" {
-  name                 = "gpt-4"
+  name                 = "gpt-4o"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
   model {
     format  = "OpenAI"
-    name    = "gpt-4"
-    version = "0613"
+    name    = "gpt-4o"
+    version = "2024-05-13"
   }
 
   scale {
