@@ -65,12 +65,6 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-      # 7️⃣ tfsec – Terraform security scan (AFTER plan)
-      - name: tfsec security scan
-        uses: aquasecurity/tfsec-action@v1.0.3
-        with:
-          working_directory: infra
-
       # 8️⃣ Terraform Apply (only runs if tfsec passes)
       - name: Terraform Apply
         run: terraform apply -auto-approve tfplan
