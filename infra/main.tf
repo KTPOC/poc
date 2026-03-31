@@ -4,32 +4,53 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
 }
 
-# Azure AI Hub (Foundry)
-resource "azurerm_ai_studio_hub" "hub" {
-  name                = var.ai_hub_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
+# ---------------------------
+# AI HUB (Foundry) via AzAPI
+# ---------------------------
+resource "azapi_resource" "ai_hub" {
+  type      = "Microsoft.MachineLearningServices/workspaces@2024-04-01"
+  name      = var.ai_hub_name
+  location  = var.location
+  parent_id = azurerm_resource_group.rg.id
+
+  body = jsonencode({
+    kind = "Hub"
+    properties = {}
+  })
 }
 
-# Azure AI Project
-resource "azurerm_ai_studio_project" "project" {
-  name                = var.ai_project_name
-  location            = azurerm_resource_group.rg.location
-  resource_group_name = azurerm_resource_group.rg.name
-  hub_id              = azurerm_ai_studio_hub.hub.id
+# ---------------------------
+# AI PROJECT
+# ---------------------------
+resource "azapi_resource" "ai_project" {
+  type      = "Microsoft.MachineLearningServices/workspaces@2024-04-01"
+  name      = var.ai_project_name
+  location  = var.location
+  parent_id = azurerm_resource_group.rg.id
+
+  body = jsonencode({
+    kind = "Project"
+    properties = {
+      hubResourceId = azapi_resource.ai_hub.id
+    }
+  })
 }
 
-# Azure OpenAI Resource
+# ---------------------------
+# Azure OpenAI
+# ---------------------------
 resource "azurerm_cognitive_account" "openai" {
   name                = var.openai_name
-  location            = azurerm_resource_group.rg.location
+  location            = var.location
   resource_group_name = azurerm_resource_group.rg.name
 
   kind     = "OpenAI"
   sku_name = "S0"
 }
 
-# OpenAI Deployment (GPT model)
+# ---------------------------
+# Model Deployment
+# ---------------------------
 resource "azurerm_cognitive_deployment" "gpt4" {
   name                 = "gpt-4"
   cognitive_account_id = azurerm_cognitive_account.openai.id
