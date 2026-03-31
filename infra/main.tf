@@ -66,8 +66,9 @@ resource "azurerm_cognitive_deployment" "gpt4" {
 
   model {
     format  = "OpenAI"
-    name    = "gpt-4o-mini"
-    version = "2024-07-18"
+    name    = "text-curie-001"
+    version = "1"
+
   }
 
   scale {
