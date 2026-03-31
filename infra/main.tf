@@ -12,12 +12,17 @@ resource "azapi_resource" "ai_hub" {
   name      = var.ai_hub_name
   location  = var.location
   parent_id = azurerm_resource_group.rg.id
+identity {
+    type = "SystemAssigned"
+  }
+
 
   body = jsonencode({
     kind = "Hub"
     properties = {}
   })
 }
+
 
 # ---------------------------
 # AI PROJECT
@@ -27,6 +32,10 @@ resource "azapi_resource" "ai_project" {
   name      = var.ai_project_name
   location  = var.location
   parent_id = azurerm_resource_group.rg.id
+
+  identity {
+    type = "SystemAssigned"
+  }
 
   body = jsonencode({
     kind = "Project"
