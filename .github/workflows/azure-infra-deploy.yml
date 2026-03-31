@@ -53,9 +53,15 @@ jobs:
 
       # 5️⃣ Terraform Validate
       - name: Terraform Validate
-        run: terraform validate
+        run:  validate
 
-      # 6️⃣ Terraform Plan
+     # 6️⃣terraform tfsec – Terraform security scan (AFTER plan)
+      - name: tfsec security scan
+        uses: aquasecurity/tfsec-action@v1.0.3
+        with:
+          working_directory: infra
+
+      # 7️⃣ Terraform Plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
