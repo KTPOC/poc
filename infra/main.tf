@@ -68,7 +68,6 @@ resource "azurerm_cognitive_deployment" "gpt4" {
  model {
   format  = "OpenAI"
   name    = var.openai_model_name
-  version = var.openai_model_version
 }
 
   }
