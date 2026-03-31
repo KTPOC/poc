@@ -1,4 +1,8 @@
+location              = "eastus"
+resource_group_name   = "rg-storage-demo"
+storage_account_name  = "stappdemostore01"
 
-location            = "eastus"
-resource_group_name = "rg-appinsights"
-appinsights_name    = "appinsights-demo"
+tags = {
+  environment = "dev"
+  owner       = "infra-team"
+}
