@@ -20,11 +20,7 @@ data "azurerm_client_config" "current" {}
 
 # ----------------------------
 # Resource Group
-# ----------------------------
-resource "azurerm_resource_group" "rg" {
-  name     = "rg-ai-foundry-demo"
-  location = "eastus"
-}
+# ---------------------------
 
 # ----------------------------
 # Key Vault (required by Foundry Hub)
