@@ -11,6 +11,7 @@ resource "azurerm_storage_account" "storage" {
 
   account_tier             = "Standard"
   account_replication_type = "LRS"
+public_network_access_enabled = true
 
   enable_https_traffic_only       = true
   allow_nested_items_to_be_public = true
