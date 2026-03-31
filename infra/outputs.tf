@@ -1,9 +1,9 @@
 output "ai_hub_id" {
-  value = azurerm_ai_studio_hub.hub.id
+  value = azapi_resource.ai_hub.id
 }
 
 output "ai_project_id" {
-  value = azurerm_ai_studio_project.project.id
+  value = azapi_resource.ai_project.id
 }
 
 output "openai_endpoint" {
