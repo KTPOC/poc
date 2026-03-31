@@ -1,18 +1,11 @@
 terraform {
-  required_version = ">= 1.5"
+  required_version = ">= 1.5.0"
 
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = ">= 3.80"
-    }
-    azapi = {
-      source  = "azure/azapi"
-      version = ">= 1.9"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = ">= 3.5"
+      # Use a recent 4.x version (the Foundry resources are documented in 4.x)
+      version = ">= 4.54.0"
     }
   }
 }
