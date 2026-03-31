@@ -4,17 +4,6 @@ resource "azurerm_resource_group" "rg" {
 }
 
 
-terraform {
-  required_version = ">= 1.5.0"
-
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      # Use a recent 4.x version (the Foundry resources are documented in 4.x)
-      version = ">= 4.54.0"
-    }
-  }
-}
 
 data "azurerm_client_config" "current" {}
 
