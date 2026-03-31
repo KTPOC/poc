@@ -17,3 +17,10 @@ variable "ai_project_name" {
 variable "openai_name" {
   default = "openai-prod-demo-12345"
 }
+variable "openai_model_name" {
+  default = "gpt-4.1"
+}
+
+variable "openai_model_version" {
+  default = "2025-01-01"
+}
