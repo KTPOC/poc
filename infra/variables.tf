@@ -1,24 +1,19 @@
 variable "location" {
-  type    = string
   default = "eastus"
 }
 
 variable "resource_group_name" {
-  type    = string
-  default = "rg-ai-foundry-demo"
+  default = "rg-ai-foundry-prod"
 }
 
 variable "ai_hub_name" {
-  type    = string
-  default = "ai-hub-demo"
+  default = "ai-hub-prod-demo"
 }
 
 variable "ai_project_name" {
-  type    = string
-  default = "ai-project-demo"
+  default = "ai-project-prod-demo"
 }
 
 variable "openai_name" {
-  type    = string
-  default = "openai-demo-12345"
+  default = "openai-prod-demo-12345"
 }
