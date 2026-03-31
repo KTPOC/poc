@@ -1,8 +1,5 @@
-location              = "eastus"
-resource_group_name   = "rg-storage-demo"
-storage_account_name  = "stappdemostore01"
-
-tags = {
-  environment = "dev"
-  owner       = "infra-team"
-}
+location            = "eastus"
+resource_group_name = "rg-ai-foundry-demo"
+ai_hub_name         = "ai-hub-demo"
+ai_project_name     = "ai-project-demo"
+openai_name         = "openai-demo-12345"
