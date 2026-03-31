@@ -10,4 +10,8 @@ variable "resource_group_name" {
   type        = string
   default     = "rg-monitoring-demo"
 }
-
+]
+variable "storage_account_name" {
+  description = "Globally unique storage account name"
+  type        = string
+}
