@@ -1,9 +1,8 @@
 location            = "eastus"
-resource_group_name = "rg-ai-foundry-prod"
+resource_group_name = "rg-ai-foundry-dev"
+openai_name         = "openai-dev-12345"
 
-ai_hub_name         = "ai-hub-prod-demo"
-ai_project_name     = "ai-project-prod-demo"
-
-openai_name         = "openai-prod-demo-12345"
-openai_model_name    = "gpt-5.4"
-
+tags = {
+  environment = "dev"
+  workload    = "ai-foundry"
+}
