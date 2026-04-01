@@ -1,7 +1,20 @@
 variable "location" {
-  default = "eastus"
+  description = "Azure region"
+  type        = string
 }
 
 variable "resource_group_name" {
-  default = "rg-ai-foundry-prod"
+  description = "Resource Group name"
+  type        = string
+}
+
+variable "openai_name" {
+  description = "Azure OpenAI account name"
+  type        = string
+}
+
+variable "tags" {
+  description = "Tags"
+  type        = map(string)
+  default     = {}
 }
