@@ -26,3 +26,17 @@ module "openai" {
     workload    = "ai-foundry"
   }
 }
+resource "azurerm_cognitive_deployment" "gpt" {
+  name                 = "gpt-deployment"
+  cognitive_account_id = module.openai.id
+
+  model {
+    format  = "OpenAI"
+    name    = "gpt-4.1-mini"   # ✅ VALID model
+    version = "2025-01-01"
+  }
+
+  scale {
+    type = "Standard"
+  }
+}
