@@ -61,7 +61,7 @@ resource "azurerm_cognitive_account" "openai" {
 # Model Deployment
 # ---------------------------
 resource "azurerm_cognitive_deployment" "gpt4" {
-  name                 = "gpt-4o-mini"
+  name                 = "gpt-5.4"
   cognitive_account_id = azurerm_cognitive_account.openai.id
 
 
